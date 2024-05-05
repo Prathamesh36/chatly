@@ -1,0 +1,33 @@
+::-webkit-scrollbar{
+ width: 5px;
+}
+
+::-webkit-scrollbar-track{
+ 
+}
+
+::-webkit-scrollbar-thumb{
+background-color: gray;
+}
+
+.spline{
+    height: 74% !important;
+}
+
+.shadow{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+}
+
+.chat-background{
+    background-image: url(https://static.whatsapp.net/rsrc.php/v3/yl/r/gi_DckOUM5a.png);
+    /* background-color: rgba(44, 44, 44, 0.255); */
+}
+
+.hover{
+    transition: 0.4s;
+}
+
+.hover:hover{
+    background-color: rgb(219, 219, 219);
+}
