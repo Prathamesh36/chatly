@@ -4,7 +4,7 @@ import { CREATE_NEW_MESSAGE, GET_ALL_MESSAGE } from "./ActionType";
 //create new message
 export const createNewMessage = (data) => async (dispatch) => {
   const res = await fetch(
-    `${BASE_URL}/messages/create`,
+    `${BASE_URL}/api/messages/create`,
     {
       method: "POST",
       headers: {
@@ -28,7 +28,7 @@ export const createNewMessage = (data) => async (dispatch) => {
 export const getAllMessage = (data) => async (dispatch) => {
  
   const res = await fetch(
-    `${BASE_URL}/messages/chat/${data.chatId}`,
+    `${BASE_URL}/api/messages/chat/${data.chatId}`,
     {
       method: "GET",
       headers: {

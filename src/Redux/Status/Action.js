@@ -4,7 +4,7 @@ import { GET_STATUS_BY_ID } from "./ActionType";
 export const findStatusById = (data) => async (dispatch) => {
  
     const res = await fetch(
-      `${BASE_URL}/status/${data.statusId}`,
+      `${BASE_URL}/api/status/${data.statusId}`,
       {
         method: "GET",
         headers: {
@@ -21,7 +21,7 @@ export const findStatusById = (data) => async (dispatch) => {
   export const createStatusAction = (data) => async (dispatch) => {
  
     const res = await fetch(
-      `${BASE_URL}/status`,
+      `${BASE_URL}/api/status`,
       {
         method: "POST",
         headers: {

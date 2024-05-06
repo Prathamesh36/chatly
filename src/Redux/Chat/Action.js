@@ -3,7 +3,7 @@ import { CREATE_GROUP_CHAT, CREATE_SINGLE_CHAT, GET_ALL_CHAT } from "./ActionTyp
 
 export const createSingleChat = (data) => async(dispatch) => {
   try {
-     const res = await fetch(`${BASE_URL}/chats/single`, {
+     const res = await fetch(`${BASE_URL}/api/chats/single`, {
   
       method:"POST",
       headers: {
@@ -24,7 +24,7 @@ export const createSingleChat = (data) => async(dispatch) => {
 }
 export const createGroupChat = (data) => async(dispatch) => {
   try {
-     const res = await fetch(`${BASE_URL}/chats/group`, {
+     const res = await fetch(`${BASE_URL}/api/chats/group`, {
   
       method:"POST",
       headers: {
@@ -45,7 +45,7 @@ export const createGroupChat = (data) => async(dispatch) => {
 }
 
 export const getAllChat = (token) => async(dispatch) => {
- const res = await fetch(`${BASE_URL}/chats/user`, {
+ const res = await fetch(`${BASE_URL}/api/chats/user`, {
       method:"GET",
       headers: {
         "Content-Type": "application/json",

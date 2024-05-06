@@ -8,7 +8,7 @@ import {
 } from "./ActionType";
 
 export const register = (data) => async (dispatch) => {
-  const res = await fetch(`https://${BASE_URL}/auth/signup`, {
+  const res = await fetch(`${BASE_URL}/auth/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const register = (data) => async (dispatch) => {
 };
 
 export const login = (data) => async (dispatch) => {
-  const res = await fetch(`https://${BASE_URL}/auth/signin`, {
+  const res = await fetch(`${BASE_URL}/auth/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export const currentUser = (token) => async (dispatch) => {
   console.log("token req profile ------ ", token);
 
   try {
-    const res = await fetch(`${BASE_URL}/users/profile`, {
+    const res = await fetch(`${BASE_URL}/api/users/profile`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export const currentUser = (token) => async (dispatch) => {
 };
 
 export const searchUser = (data) => async (dispatch) => {
-  const res = await fetch(`${BASE_URL}/users/search?name=${data.keyword}`, {
+  const res = await fetch(`${BASE_URL}/api/users/search?name=${data.keyword}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export const searchUser = (data) => async (dispatch) => {
 export const updateUser = (data) => async (dispatch) => {
   console.log("update user data - ",data)
   try {
-    const res = await fetch(`${BASE_URL}/users/update/${data.id}`, {
+    const res = await fetch(`${BASE_URL}/api/users/update/${data.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
