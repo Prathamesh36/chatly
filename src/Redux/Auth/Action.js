@@ -8,7 +8,7 @@ import {
 } from "./ActionType";
 
 export const register = (data) => async (dispatch) => {
-  const res = await fetch(`http://${BASE_URL}/auth/signup`, {
+  const res = await fetch(`https://${BASE_URL}/auth/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const register = (data) => async (dispatch) => {
 };
 
 export const login = (data) => async (dispatch) => {
-  const res = await fetch(`http:/${BASE_URL}/auth/signin`, {
+  const res = await fetch(`https://${BASE_URL}/auth/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
