@@ -33,7 +33,7 @@ import { over } from "stompjs";
 import CreateGroup from "../Group/CreateGroup";
 import WelcomeScr from "./WelcomeScr";
 import Spline from '@splinetool/react-spline';
-
+import { BASE_URL } from "../../Config/Api";
 let soket, selectedChatCompare;
 
 const HomePage = () => {
