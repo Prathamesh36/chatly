@@ -8,7 +8,7 @@ import { setFieldToNull } from '../../Redux/Empty/Action';
 import { LOGIN, REGISTER, REQ_USER } from '../../Redux/Auth/ActionType';
 import { useNavigate } from 'react-router-dom';
 
-const DropDown=({handleCreateGroup})=> {
+const DropDown=({handleCreateGroup, navigateToProfile})=> {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const dispatch=useDispatch();
@@ -46,9 +46,9 @@ const handleLogout=()=>{
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={navigateToProfile}>Profile</MenuItem>
         <MenuItem onClick={handleCreateGroup}>Create Group</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={navigateToProfile}>My account</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
         
       </Menu>

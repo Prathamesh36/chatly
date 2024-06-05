@@ -31,3 +31,30 @@ background-color: gray;
 .hover:hover{
     background-color: rgb(219, 219, 219);
 }
+
+@media screen and (max-width: 880px) {
+    .main-center-container{
+        left:40px;
+    }
+    .chat-moving-container{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .status-logo{
+        display: none;
+    }
+    .chat-logo{
+        display: none;
+    }
+    .profile-div{
+        padding-top: .6rem;
+        padding-bottom: 1rem;
+    }
+    .text-lg{
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+    .visible{
+        font-size: 0.7rem;
+    }
+}

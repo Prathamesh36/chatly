@@ -156,6 +156,7 @@ const HomePage = () => {
     }
   }, [message.newMessage]);
 
+
   useEffect(() => {
     if (message.messages) setMessages(message.messages);
   }, [message.messages]);
@@ -229,6 +230,9 @@ const HomePage = () => {
     navigate("/status");
   };
 
+  const navigateToProfile=() =>{
+    setIsProfile(true);
+  }
   const handleCreateGroup = () => {
     setIsCreateGroup(true);
   };
@@ -237,7 +241,7 @@ const HomePage = () => {
     <div className="relative">
       <div className="h-[100vh] w-[100vw] bg-[#EEEEEE]"></div>
 
-      <div className="absolute w-[90vw] h-[88vh] bg-[#f0f2f500] top-12 left-[80px] flex rounded-2xl">
+      <div className="absolute w-[90vw] h-[88vh]  top-12 left-[80px] flex rounded-2xl main-center-container">
         <div className="w-[30%] h-full rounded-2xl ">
 
           {isCreateGroup && (
@@ -263,10 +267,10 @@ const HomePage = () => {
             <div className="h-full ">
               <div className=" w-full h-[21%] mb-2">
                 {/* profile img and icons */}
-                <div className="flex justify-between items-center bg-white rounded-2xl px-4 py-4 text-black mb-2">
+                <div className="flex justify-between items-center bg-white rounded-2xl px-4 py-4 text-black mb-2 profile-div">
                   <div className="flex items-center space-x-3 ">
                     <img
-                      onClick={() => setIsProfile(true)}
+                      onClick={navigateToProfile}
                       className="rounded-full w-10 h-10 cursor-pointer"
                       src={
                         auth.reqUser?.profile_picture ||
@@ -277,9 +281,9 @@ const HomePage = () => {
                     <p>{auth.reqUser?.full_name}</p>
                   </div>
                   <div className="space-x-3 text-2xl flex">
-                    <TbCircleDashed className="cursor-pointer" onClick={handleNavigate} />
-                    <BiCommentDetail />
-                    <DropDown handleCreateGroup={handleCreateGroup} />
+                    <TbCircleDashed className="cursor-pointer status-logo" onClick={handleNavigate}/>
+                    <BiCommentDetail className="chat-logo" />
+                    <DropDown handleCreateGroup={handleCreateGroup} navigateToProfile={navigateToProfile} />
                   </div>
                 </div>
 
@@ -301,6 +305,8 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
+
+
               {/* all user */}
 
               <div className="relative bg-[#ffffff] rounded-2xl overflow-y-scroll h-[78%] z-200 no-scrollbar">
@@ -329,7 +335,7 @@ const HomePage = () => {
                   chat?.chats?.map((item, index) => (
                     <div onClick={() => handleCurrentChat(item)} key={item.id}>
                       {/* <hr /> */}
-                      {item.is_group ? (
+                      {item.is_group ? (              //if group chat
                         <UserChat
                           name={item.chat_name}
                           userImg={
@@ -337,7 +343,7 @@ const HomePage = () => {
                             "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
                           }
                         />
-                      ) : (
+                      ) : (                             //if single chat
                         <UserChat
                           isChat={true}
                           name={
@@ -371,6 +377,8 @@ const HomePage = () => {
             </div>
           )}
         </div>
+
+        {/*right side default page section*/}
 
         {!currentChat && (
           <div className="w-[70%] flex flex-col ml-2 items-center justify-start bg-[#fefefe] rounded-2xl overflow-hidden ">
@@ -436,7 +444,7 @@ const HomePage = () => {
               onClick={handleEmojiBoxClose}
               className="px-10 h-[69vh] overflow-y-scroll mb-2 chat-background bg-slate-50 rounded-2xl"
             >
-              <div className=" space-y-1 flex flex-col justify-center border-none mt-20 py-2 pl-10 pr-10">
+              <div className="space-y-1 flex flex-col justify-center border-none mt-20 py-2 pl-10 pr-10 chat-moving-container">
                 {messages.length > 0 &&
                   messages?.map((item, index) => (
                     <Message
@@ -489,7 +497,10 @@ const HomePage = () => {
               </div>
 
               {/* send */}
-              <div className=" bg-[#FF4A09] w-[72px] h-[72px]  py-4 text-2xl rounded-2xl flex justify-center text-white">
+              <div className=" bg-[#FF4A09] w-[72px] h-[72px]  py-4 text-2xl rounded-2xl flex justify-center text-white cursor-pointer"
+                onClick={()=>{ handleCreateNewMessage();
+                  setContent("");}}
+              >
                 <RiSendPlaneFill className="self-center" />
               </div>
 

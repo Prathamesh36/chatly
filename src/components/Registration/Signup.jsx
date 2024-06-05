@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { currentUser, register } from "../../Redux/Auth/Action";
 import SimpleSnackbar from "../HomePage/SimpleSnackbar";
 import WelcomeScr from "../HomePage/WelcomeScr";
+import { Snackbar } from "@mui/material";
 
 
 const Signup = () => {
@@ -46,7 +47,7 @@ const token = localStorage.getItem("token");
 // dispacth register action
   const handleSubmit = (event) => {
    event.preventDefault();
-   dispatch(register(inputData))
+   dispatch(register(inputData))  //sending input data
     
   };
 
@@ -95,7 +96,7 @@ const token = localStorage.getItem("token");
             <p className="mb-2">Password</p>
             <input
               className="py-2 px-3 outline outline-[#FF4A09] outline-2 w-full rounded-3xl border-1"
-              type="text"
+              type="password"
               placeholder="Enter your Password"
               name="password"
               onChange={(e) => handleChange(e)}
@@ -123,7 +124,7 @@ const token = localStorage.getItem("token");
         </div>
       </div>
       </div>
-      <SimpleSnackbar
+      <Snackbar
         message={auth.signup?.message}
         open={open}
         handleClose={handleClose}

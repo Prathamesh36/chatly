@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import "./Home.css";
-
+//chat card
 const UserChat = ({
   name,
   userImg,
@@ -18,8 +18,8 @@ const UserChat = ({
       </div>
       <div className="pl-5 w-[80%]">
         <div className="flex justify-between items-center">
-          <p className="text-lg">{name}</p>
-          {isChat && <p className="text-sm">{sentTime}</p>}
+          <p className="text-lg">{name}</p>                     {/*chat card name*/}
+          {isChat && <p className="text-sm">{sentTime}</p>}     {/*timestamp*/}
         </div>
         <div className="flex justify-between items-center">
            <p className={`${isChat && message?.length>0?"visible":"invisible"}`}>{message?.length>15? message.slice(0,15)+"...":message}</p>  

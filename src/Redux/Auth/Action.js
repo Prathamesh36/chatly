@@ -13,9 +13,9 @@ export const register = (data) => async (dispatch) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(data),   //we send a backend data in string format, so that we use stringify
   });
-  const user = await res.json();
+  const user = await res.json();  //to collect data from string, we use res.json()
   console.log("register", user);
   if (user.jwt) localStorage.setItem("token", user.jwt);
   dispatch({ type: REGISTER, payload: user });

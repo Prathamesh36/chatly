@@ -95,9 +95,10 @@ const NewGroup = ({ handleBack, groupMember, setIsCreateGroup }) => {
             value={groupName}
           />
         </div>
+
         {groupName && <div className=" py-10 bg-slate-200 flex items-center justify-center">
           <Button onClick={handleCreateGroup} variant="text">
-            <div className="bg-[#0c977d] rounded-full p-4 ">
+            <div className="bg-[#ff4a09] rounded-full p-4 ">
               <BsCheck2 className="text-white font-bold text-3xl" />
             </div>
           </Button>
